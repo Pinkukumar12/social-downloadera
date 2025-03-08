@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Enter Video URL</h2>
+    <form method="POST">
+        <input type="text" name="url" placeholder="Paste video URL here..." required>
+        <button type="submit">Download</button>
+    </form>
+
+    {% if video_url %}
+        <h3>Download Link:</h3>
+        <a href="{{ video_url }}" download>Click here to download</a>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+</body>
+</html>
